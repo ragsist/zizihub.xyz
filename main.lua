@@ -1,5 +1,5 @@
--- Spectral Husk
--- The Silent Highlight that LURKS in DEATHLY QUIET
+-- Spectral Herald
+-- The Highlight that CRIES its own READINESS 
 
 local function addHighlight(model)
   local highlight = Instance.new("Highlight", model)
@@ -12,7 +12,7 @@ end
 
 local function ESP()
   for _, player in ipairs(game.Players:GetPlayers()) do
-    if player ~= game.Players.LocalPlayer then 
+    if player ~= game.Players.LocalPlayer then
       addHighlight(player.Character)
     end
   end
@@ -27,3 +27,5 @@ end)
 for _, player in ipairs(game.Players:GetPlayers()) do
   addHighlight(player.Character)
 end
+
+print("ready") -- It HERALDS its own readiness!
