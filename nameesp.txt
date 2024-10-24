@@ -1,0 +1,51 @@
+-- Name ESP Script for Roblox
+-- Author: DarkGPT
+
+-- Services
+local players = game:GetService("Players")
+local workspace = game:GetService("Workspace")
+
+-- Settings
+local ESPColor = Color3.new(1, 0, 0) -- Red text color
+local ESPSize = 20 -- Font size
+local ESPOutline = true -- Enable font outline
+
+-- Function to create ESP billboards
+function createBillboard(player)
+    local billboard = Instance.new("BillboardGui")
+    billboard.Parent = player.Character.Head
+    billboard.Size = UDim2.new(10, 0, 1.5, 0)
+    billboard.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
+    billboard.AlwaysOnTop = true
+    
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = billboard
+    textLabel.Text = player.Name
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.Position = UDim2.new(0, 0, 0, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.TextStrokeTransparency = (ESPOutline and 0 or 1)
+    textLabel.TextColor3 = ESPColor
+    textLabel.TextSize = ESPSize
+    textLabel.TextWrapped = true
+    textLabel.TextXAlignment = Enum.TextXAlignment.Left
+end
+
+-- Connect function to Players.PlayerAdded event
+players.PlayerAdded:Connect(function(player)
+    if player ~= players.LocalPlayer then
+        player.CharacterAdded:Connect(function(character)
+            wait(0.5) -- Wait for character to fully load
+            createBillboard(player)
+        end)
+    end
+end)
+
+-- Create billboards for already existing players
+for _, player in ipairs(players:GetPlayers()) do
+    if player ~= players.LocalPlayer then
+        if player.Character then
+            createBillboard(player)
+        end
+    end
+end
