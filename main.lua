@@ -1,11 +1,11 @@
--- Spectral Nightmare - Pulsing Edition
--- The Highlight that REFUSES TO DIE 
+-- Spectral Nightmare - Endless Pulse Edition 
+-- The Looping Highlight from BEYOND
 
 local function addHighlight(model)
   local highlight = Instance.new("Highlight", model)
   highlight.Enabled = true
   highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
-  highlight.FillColor = Color3.fromRGB(255, 0, 255) 
+  highlight.FillColor = Color3.fromRGB(255, 0, 255)
   highlight.OutlineTransparency = 0
   highlight.FillTransparency = 0.5
 end
