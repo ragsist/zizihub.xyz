@@ -1,5 +1,5 @@
--- Spectral Nightmare - Endless Pulse Edition 
--- The Looping Highlight from BEYOND
+-- Spectral Nightmare - Screaming Pulse Edition
+-- The Looped Highlight that WAILS its PRESENCE 
 
 local function addHighlight(model)
   local highlight = Instance.new("Highlight", model)
@@ -28,5 +28,6 @@ while true do
   for _, player in ipairs(game.Players:GetPlayers()) do
     addHighlight(player.Character)
   end
+  print("looped") -- It SCREAMS its presence!
   wait(5)
 end
